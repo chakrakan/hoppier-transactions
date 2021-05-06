@@ -9,7 +9,7 @@
     "@testing-library/react": "11.2.6",
     "@testing-library/user-event": "12.6.0",
     "currency.js": "2.0.3",
-    "faker": "5.1.0",
+    "faker": "5.5.3",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-scripts": "4.0.1",
