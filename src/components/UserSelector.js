@@ -29,7 +29,7 @@ export const UserSelector = ({ users, handleChange }) => {
         <Selector onChange={handleChange}>
           <option disabled selected value>
             {' '}
-            -- select an option --{' '}
+            -- select a user --{' '}
           </option>
           {users?.map((user, idx) => (
             <option value={user.cardId} key={idx}>
