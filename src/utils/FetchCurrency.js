@@ -8,5 +8,5 @@ export const fetchCurrency = async () => {
     .then((res) => res.CAD)
     .catch((err) => console.log(err));
 
-  return { rateUSDtoCAD };
+  return rateUSDtoCAD;
 };

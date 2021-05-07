@@ -81,19 +81,17 @@ export default function App() {
    */
   const fetchData = useCallback(async () => {
     setLoading(true);
-    const usersData = await getUsers();
-    const merchantsData = await getMerchants();
-    const transactionsData = await getTransactions();
-    const { rateUSDtoCAD } = await fetchCurrency();
-
-    // const values = await Promise.all([
-    //   usersData,
-    //   merchantsData,
-    //   transactionsData,
-    //   rateUSDtoCAD,
-    // ]).then((values) => {
-    //   values.forEach((item) => console.log(item));
-    // });
+    const [
+      usersData,
+      merchantsData,
+      transactionsData,
+      rateUSDtoCAD,
+    ] = await Promise.all([
+      getUsers(),
+      getMerchants(),
+      getTransactions(),
+      fetchCurrency(),
+    ]);
 
     setData({
       users: usersData,
@@ -101,10 +99,7 @@ export default function App() {
       transactions: transactionsData,
       dollarToCAD: rateUSDtoCAD,
     });
-    // console.log(usersData);
-    // console.log(merchantsData);
-    // console.log(transactionsData);
-    // console.log(rateUSDtoCAD);
+
     setLoading(false);
   }, []);
 
@@ -152,7 +147,6 @@ export default function App() {
           transaction.cadAmount = cadCurrencyObj.format();
         });
 
-        console.log(currUserData, totalTransactionUSDValue.format());
         setUserTransactionData({
           transactionData: currUserData,
           totalUSD: totalTransactionUSDValue,
