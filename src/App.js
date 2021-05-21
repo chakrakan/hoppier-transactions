@@ -81,17 +81,13 @@ export default function App() {
    */
   const fetchData = useCallback(async () => {
     setLoading(true);
-    const [
-      usersData,
-      merchantsData,
-      transactionsData,
-      rateUSDtoCAD,
-    ] = await Promise.all([
-      getUsers(),
-      getMerchants(),
-      getTransactions(),
-      fetchCurrency(),
-    ]);
+    const [usersData, merchantsData, transactionsData, rateUSDtoCAD] =
+      await Promise.all([
+        getUsers(),
+        getMerchants(),
+        getTransactions(),
+        fetchCurrency(),
+      ]);
 
     setData({
       users: usersData,
